@@ -19,6 +19,35 @@ if not _G.GetLootSlotType then
     end
 end
 
+-------------------------------------------------
+-- WotLK Polyfill for Modern PlaySound Numeric IDs
+-------------------------------------------------
+local original_PlaySound = _G.PlaySound
+_G.PlaySound = function(sound, channel)
+    -- If no sound was passed, do nothing to prevent a crash
+    if not sound then return end
+    
+    -- If the addon passes a modern numeric Sound ID, translate it to WotLK strings
+    if type(sound) == "number" then
+        if sound == 850 then sound = "igMainMenuOpen"
+        elseif sound == 851 then sound = "igMainMenuClose"
+        elseif sound == 856 then sound = "igMainMenuOption"
+        elseif sound == 798 then sound = "igMainMenuOptionCheckBoxOn"
+        elseif sound == 799 then sound = "igMainMenuOptionCheckBoxOff"
+        elseif sound == 839 then sound = "igSpellBookOpen"
+        elseif sound == 840 then sound = "igSpellBookClose"
+        elseif sound == 882 then sound = "igQuestListOpen"
+        elseif sound == 883 then sound = "igQuestListClose"
+        else
+            return -- If it's an unknown number, just stay silent and don't crash
+        end
+    end
+    
+    -- Pass the valid string to the native 3.3.5 function
+    return original_PlaySound(sound, channel)
+end
+-------------------------------------------------
+
 -- WotLK uses Lua 5.1, so # operator works and math.mod is gone.
 ---@param t table
 ---@return number

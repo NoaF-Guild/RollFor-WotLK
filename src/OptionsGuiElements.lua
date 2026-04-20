@@ -458,7 +458,10 @@ function M.create_config( caption, setting, widget, tooltip, ufunc, options )
     frame.button:SetWidth( w )
     frame.button:SetHeight( 20 )
     frame.button:SetPoint( "TOPLEFT", (this:GetParent():GetWidth() / 2 - w / 2 - 10), -5 )
-    frame.button:SetTextColor( 1, 1, 1, 1 )
+    local btnText = frame.button:GetFontString()
+    if btnText then
+      btnText:SetTextColor( 1, 1, 1, 1 )
+    end
     frame.button:SetScript( "OnClick", ufunc )
     frame.button:SetScript( "OnEnter", function()
       this:SetBackdropBorderColor( 0.1254, 0.6235, 0.9764, 1 )

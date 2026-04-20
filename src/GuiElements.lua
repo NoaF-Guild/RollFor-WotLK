@@ -504,7 +504,7 @@ function M.dropdown( anchor_frame, button, items_data, on_select )
   local height = 4
 
   dropdown.items = {}
-  for _, item_data in items_data do
+  for _, item_data in ipairs( items_data ) do
     local item
 
     local function blue_hover( a )
