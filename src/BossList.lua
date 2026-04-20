@@ -107,54 +107,10 @@ M.zones    = {
     "Nefarian"
   },
   [ "Onyxia's Lair" ] = {
-    "Onyxia",
-    "Broodcommander Axelus"
-  },
-  [ "Ahn'Qiraj" ] = {
-    "The Prophet Skeram",
-    "Vem",
-    "Lord Kri",
-    "Princess Yauj",
-    "Battleguard Sartura",
-    "Fankriss the Unyielding",
-    "Viscidus",
-    "Princess Huhuran",
-    "Emperor Vek'lor",
-    "Emperor Vek'nilash",
-    "Ouro",
-    "C'Thun"
-  },
-  [ "Naxxramas" ] = {
-    "Patchwerk",
-    "Grobbulus",
-    "Gluth",
-    "Thaddius",
-    "Anub'Rekhan",
-    "Grand Widow Faerlina",
-    "Maexxna",
-    "Noth the Plaguebringer",
-    "Heigan the Unclean",
-    "Loatheb",
-    "Instructor Razuvious",
-    "Gothik the Harvester",
-    "Thane Korth'azz",
-    "Lady Blaumeux",
-    "Highlord Mograine",
-    "Sir Zeliek",
-    "Sapphiron",
-    "Kel'Thuzad"
-  }
-}
-
----@type BossList
-m.BossList = M
-return M    "Ebonroc",
-    "Flamegor",
-    "Chromaggus",
-    "Nefarian"
-  },
-  [ "Onyxia's Lair" ] = {
-    "Onyxia"
+	"Onyxia",
+	"Broodcommander Axelus",
+	"Atressian",
+	"Ortorg the Ardent"
   },
   [ "Ahn'Qiraj" ] = {
     "The Prophet Skeram",
