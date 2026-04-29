@@ -1,5 +1,5 @@
 # RollFor
-A World of Warcraft (1.12.1 and 2.5.2) addon that manages rolling for items.  
+A World of Warcraft (3.3.5) addon that manages rolling for items.  
 
 ## New in this fork
 This version includes the following new features:
