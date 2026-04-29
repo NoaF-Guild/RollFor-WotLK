@@ -257,6 +257,7 @@ Click on the minimap icon and click **Clear** or type:
 ## Shoutouts
 
 Thank you to:
+  * **Obszczymucha** for the hard work making this add-on
   * **Turtle WoW devs** for amazing content. You cunts should switch to a better client.  
   * **Itamedruids** for *Raidres* and adding the export function. Love your work.  
   * My fellow raiders (there's too many to mention).  
@@ -266,10 +267,11 @@ Thank you to:
 ## Need more help?
 
 The best way to contact me is to message me on Discord.  
-Username: **Obszczymucha**  
+Username: **zephzaezeit**  
 
-My character **Jogobobek** will no longer be available on Turtle WoW.  
-I'm switching to Netherwing 3.0, perhaps under a different name :P  
+My character **Zaeryth** will no longer be available on Turtle WoW because its shut down.  
+
+This work is being done to pass the torch to the next servers.
 
 Thanks Turtle for fun.
 
