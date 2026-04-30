@@ -179,6 +179,9 @@ local function create_frame( api, on_import, on_clear, on_cancel, on_dirty )
     end )
   end
 
+  local label = frame:CreateFontString( nil, "OVERLAY", "GameFontNormal" )
+  label:SetPoint( "BOTTOMLEFT", frame, "BOTTOMLEFT", 20, 22 )
+  label:SetTextColor( 1, 1, 1, 1 )
   -- Determine which website to show based on realm
 local realm = GetRealmName()
 local sr_website
