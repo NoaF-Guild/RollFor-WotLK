@@ -64,13 +64,13 @@ function M.new( api, player_info )
 
     local party = { "player", "party1", "party2", "party3", "party4" }
 
-    for _, v in ipairs( party ) do
-      local name = api.UnitName( v )
-      local class = api.UnitClass( v )
-      local online = api.UnitIsConnected( v ) and true or false
-      local player = name and class and make_player( name, class, online )
-      if player and (not f or f( player )) then table.insert( result, player ) end
-    end
+for _, v in ipairs( party ) do
+  local name = api.UnitName( v )
+  local _, class = api.UnitClass( v )
+  local online = v == "player" or (api.UnitIsConnected( v ) and true or false)
+  local player = name and class and make_player( name, class, online )
+  if player and (not f or f( player )) then table.insert( result, player ) end
+end
 
     sort( result )
     return result
