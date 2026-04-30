@@ -160,14 +160,16 @@ instead of `/rf`. "arf" stands for "All Roll For".
 
 ## Soft-Res setup
 
-1. Create a Soft Res list at https://softres.io (Coming soon)
+1. Create a Soft Res list at https://softres.epoglogs.com/ or https://softres.it
 2. Ask raiders to add their items.
-3. When ready, lock the raid and click on **RollFor export** (raidres.fly.dev) or **Gargul Export** (softes.it) button.
+3. When ready, lock the raid and click on **RollFor export** (softres.epoglogs.com) or **Gargul Export** (softres.it) button.
 
+<img src="https://github.com/thezephyrsong/RollFor-WotLK/blob/main/SoftRes/softreslocked.png" alt="SoftRes export" style="width:720px;height:350">  
 <img src="https://github.com/sica42/roll-for-vanilla/blob/master/docs/raidres-export.jpg" alt="Raidres export" style="width:720px;height:350">
 
 4. Click on **Copy RollFor data to clipboard** buton.
 
+<img src="https://github.com/thezephyrsong/RollFor-WotLK/blob/main/SoftRes/softresexport.png" alt="SoftRes copy to clipboard" style="width:720px;height:350">  
 <img src="https://github.com/sica42/roll-for-vanilla/blob/master/docs/raidres-copy-to-clipboard.jpg" alt="Raidres copy to clipboard" style="width:720px;height:350">
 
 5. Click on the minimap icon or type `/sr`.  
