@@ -102,14 +102,14 @@ function M.new( event_frame, api )
   ---@return boolean
   local function is_item( slot )
     local slot_type = api.GetLootSlotType( slot )
-    return slot_type == api.LOOT_SLOT_ITEM
+    return slot_type == LOOT_SLOT_ITEM
   end
 
   ---@param slot number
   ---@return boolean
   local function is_coin( slot )
     local slot_type = api.GetLootSlotType( slot )
-    return slot_type == api.LOOT_SLOT_MONEY
+    return slot_type == LOOT_SLOT_MONEY
   end
 
   ---@param slot number
