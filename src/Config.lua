@@ -46,6 +46,7 @@ function M.new( db, event_bus )
     [ "enable_quick_award_ctrl" ] = { cmd = "enable-quick-award-ctrl", display = "Enable Ctrl-click on award other button", help = "Enable Ctrl-click on award others button to award pre-selected player" },
     [ "disable_quick_award_confirm" ] = { cmd = "disable-quick-award-confirm", display = "Disable confirmation on quick award", help = "disable confirmation on quick award (shift/ctrl click)" },
     [ "disable_quick_award_confirm_bop" ] = { cmd = "disable-quick-award-confirm-bop", display = "Allow BOP items to be quick awarded without confirmation", help = "allow BOP items to be quick looted without confirmation popup" },
+    [ "announce_sr_on_loot" ] = { cmd = "announce-sr-on-loot", display = "Announce SR status when item drops", help = "announce whether a dropped item is soft-ressed when it is looted" },
   }
 
   local function notify_subscribers( event, value )
@@ -71,6 +72,7 @@ function M.new( db, event_bus )
     if db.handle_plus_ones == nil then db.handle_plus_ones = false end
     if db.plus_one_prompt == nil then db.plus_one_prompt = false end
     if db.auto_loot_announce == nil then db.auto_loot_announce = true end
+    if db.announce_sr_on_loot == nil then db.announce_sr_on_loot = true end
     if db.loot_frame_cursor == nil then db.loot_frame_cursor = false end
     if db.client_show_roll_popup == nil then db.client_show_roll_popup = "Off" end
     if db.client_auto_hide_popup == nil then db.client_auto_hide_popup = false end

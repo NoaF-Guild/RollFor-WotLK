@@ -229,6 +229,7 @@ function M.new( popup_builder, awarded_loot, version_broadcast, event_bus, confi
       e.create_config( "Auto-loot coins with SuperWow", "superwow_auto_loot_coins", "checkbox", "Automatically loot coins (requires SuperWow mod)." )
       e.create_config( "Auto-loot messages", "auto_loot_messages", "checkbox", "Display auto-looted items in your private chat." )
       e.create_config( "Announce auto-looted items", "auto_loot_announce", "checkbox", "Announce auto-looted items above loot quality threshold to party/raid." )
+      e.create_config( "Announce SR status when item drops", "announce_sr_on_loot", "checkbox", "Announce whether each dropped item is Soft-Ressed (or not) when the loot window opens." )
 
       e.create_config( "Quick award", nil, "header" )
       this.enable_quick_award_shift = e.create_config( "Enable quick award to self", "enable_quick_award_shift", "checkbox",

@@ -365,6 +365,18 @@ function M.new(
     end ) )
   end
 
+  local function add_arf_roll_button( buttons, item, item_count )
+    table.insert( buttons, button( "ARFRoll", function()
+      m.slash_command_in_chat( m.Types.RollSlashCommand.NoSoftResRoll, item.link )
+    end ) )
+  end
+
+  local function add_sr_roll_button( buttons, item, item_count )
+    table.insert( buttons, button( "SRRoll", function()
+      m.slash_command_in_chat( m.Types.RollSlashCommand.NormalRoll, item.link )
+    end ) )
+  end
+
   local function add_raid_roll_button( buttons, type, item, item_count )
     table.insert( buttons, button( type, function()
       player_selection_frame.hide()
@@ -386,6 +398,8 @@ function M.new(
   end
 
   local function preview_hard_ressed_item( buttons, item, item_count, dropped_item, candidate_count, candidates )
+    add_sr_roll_button( buttons, item, item_count )
+    add_arf_roll_button( buttons, item, item_count )
     add_roll_button( buttons, RS.SoftResRoll, item, item_count )
     if candidate_count > 0 then add_award_other_button( dropped_item, buttons, candidates, {}, RS.SoftResRoll ) end
     add_close_button( buttons, S.Preview )
@@ -426,6 +440,8 @@ function M.new(
   end
 
   local function preview_sr_items_not_equal_to_item_count( soft_ressers, item, item_count, dropped_item, buttons, candidate_count, candidates )
+    add_sr_roll_button( buttons, item, item_count )
+    add_arf_roll_button( buttons, item, item_count )
     add_roll_button( buttons, RS.SoftResRoll, item, item_count )
     if candidate_count > 0 then add_award_other_button( dropped_item, buttons, candidates, {}, RS.SoftResRoll ) end
     add_close_button( buttons, S.Preview )
