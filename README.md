@@ -1,22 +1,13 @@
 # RollFor
 A World of Warcraft (3.3.5) addon that manages rolling for items.  
 
-## New in this fork
-This version includes the following new features:
-* New option `/rf config auto-class-announce` Toggle replace normal roll message with classes for items that has class restrictions.
-* New option `/rf config auto-tmog` Toggle automatically disable tmog roll option on trash loot.
-* New option `/rf config loot-frame-cursor` Toggle loot frame being positioned at cursor location.
-* New popup to keep track of winners. Shift-click map icon or type `/rfw` to access.
-   * Right click headers to customize filters
-   * Click headers to sort the list
-   * Right click roll type to change it.
-* Tracks raid trades
-* New options GUI. Ctrl-click map icon or type `/rfo` to access.
-* Show roll popup for all group/raid members who have the addon installed when loot master starts a roll.
-   * Enable with `/rf config client show-roll Eligible` or `Always`
-   * `/rf config client` to view additional client options
+## New in this branch:
+* Listens to raider whispers of "!SR ?" and auto-responds telling them what they have SoftReserved
+* Added a scrollable window to view SRs in game
 
-## Demo
+  
+<img src="https://github.com/thezephyrsong/RollFor-WotLK/blob/SRTable/SoftRes/srtableingame.png?raw=true">
+
 
 ### NEW
 
@@ -102,6 +93,20 @@ Disable this feature with:
  * Fully automated (shows who soft ressed, only accepts rolls from players who SR).
 
 ---
+
+This version includes the following features:
+* New option `/rf config auto-class-announce` Toggle replace normal roll message with classes for items that has class restrictions.
+* New option `/rf config auto-tmog` Toggle automatically disable tmog roll option on trash loot.
+* New option `/rf config loot-frame-cursor` Toggle loot frame being positioned at cursor location.
+* New popup to keep track of winners. Shift-click map icon or type `/rfw` to access.
+   * Right click headers to customize filters
+   * Click headers to sort the list
+   * Right click roll type to change it.
+* Tracks raid trades
+* New options GUI. Ctrl-click map icon or type `/rfo` to access.
+* Show roll popup for all group/raid members who have the addon installed when loot master starts a roll.
+   * Enable with `/rf config client show-roll Eligible` or `Always`
+   * `/rf config client` to view additional client options
 
 ### And more
  * Supports "**two top rolls win**" rolling.
