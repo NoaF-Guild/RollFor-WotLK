@@ -341,7 +341,7 @@ local function create_table_frame( api, on_back )
       toggle_row.cell_player:SetWidth( COL_PLAYER + COL_ITEM + COL_TYPE + COL_SRPLUS - 8 )
       toggle_row.cell_player:SetText( string.format( "%s  %s",
         m.colors.red( string.format( "Hard Reserves (%d)", #last_hr_rows ) ),
-        hr_collapsed and m.colors.grey( "▶" ) or m.colors.grey( "▼" ) ) )
+        hr_collapsed and m.colors.grey( "[+]" ) or m.colors.grey( "[-]" ) ) )
       toggle_row.cell_item:SetText( "" )
       toggle_row.cell_type:SetText( "" )
       toggle_row.cell_srplus:SetText( "" )
