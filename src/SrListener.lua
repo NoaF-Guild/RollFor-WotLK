@@ -21,7 +21,7 @@ function M.new( player_info, softres )
 
   local function on_chat_msg_whisper( message, sender )
     if not am_i_the_leader() then return end
-    if not string.find( message, "^%!SR %?" ) then return end
+    if not string.find( message:lower(), "^%?sr" ) then return end
 
     local items = softres.get_player_items( sender )
 
