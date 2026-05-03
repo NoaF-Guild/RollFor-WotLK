@@ -2,7 +2,7 @@
 A World of Warcraft (3.3.5) addon that manages rolling for items.  
 
 ## New in this branch:
-* Listens to raider whispers of "!SR ?" and auto-responds telling them what they have SoftReserved
+* Listens to raider whispers of "?sr" and auto-responds telling them what they have SoftReserved
 * Added a scrollable window to view SRs in game
 * Added the option to not announce whether something is SRed, and then allowed open rolls for SR items.
 
