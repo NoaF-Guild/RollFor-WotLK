@@ -53,6 +53,7 @@ end
 M.RollType = {
   MainSpec = "MainSpec",
   OffSpec = "OffSpec",
+  TieRoll = "TieRoll",
   Transmog = "Transmog",
   SoftRes = "SoftRes"
 }

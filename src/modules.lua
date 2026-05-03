@@ -573,20 +573,24 @@ function M.roll_type_color( roll_type, text )
   end
 end
 
-function M.roll_type_abbrev_chat( roll_type )
-  if roll_type == M.Types.RollType.MainSpec then
+-- Find this function in src/modules.lua
+function M.roll_type_abbrev( roll_type )
+  local RollType = m.Types.RollType
+
+  if roll_type == RollType.MainSpec then
     return "MS"
-  elseif roll_type == M.Types.RollType.OffSpec then
+  elseif roll_type == RollType.OffSpec then
     return "OS"
-  elseif roll_type == M.Types.RollType.Transmog then
-    return "TMOG"
-  elseif roll_type == M.Types.RollType.SoftRes then
-    return "SR"
-  elseif roll_type == M.Types.RollType.RaidRoll then
+  elseif roll_type == RollType.TieRoll then -- ADD THIS SECTION
+    return "Tie"
+  elseif roll_type == RollType.Transmog then
+    return "TMog"
+  elseif roll_type == RollType.RaidRoll then
     return "RR"
-  else
-    error( string.format( "RollType %s not handled.", roll_type ) )
   end
+
+  -- This is the line currently causing your crash
+  error( string.format( "RollType %s not handled.", roll_type ) )
 end
 
 function M.roll_type_abbrev( roll_type )
