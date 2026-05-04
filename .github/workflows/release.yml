@@ -38,11 +38,8 @@ jobs:
           git push origin HEAD:${{ github.event.repository.default_branch }}
 
       - name: Package and Release
-        uses: BigWigsMods/packager@master
+        uses: BigWigsMods/packager@v2
         with:
-          # Use the local files we just modified
-          upload-dir: .
-          # Force the folder name inside the zip to match your TOC
-          args: -n RollFor-WotLK -z RollFor-WotLK
+          args: -p . -n RollFor-WotLK -z RollFor-WotLK -r
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
