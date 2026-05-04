@@ -17,6 +17,25 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
+      - name: Update Version in TOC and Push
+        run: |
+          # Configure Git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Replace the version line in the .toc file
+          # This looks for any line starting with ## Version: and replaces it
+          sed -i "s/^## Version: .*/## Version: ${{ github.ref_name }}/g" RollFor-WotLK.toc
+          
+          # Check if there are changes to commit (prevents error if version is already correct)
+          if git diff --quiet RollFor-WotLK.toc; then
+            echo "No changes to TOC file"
+          else
+            git add RollFor-WotLK.toc
+            git commit -m "chore: update version to ${{ github.ref_name }} [skip ci]"
+            git push origin HEAD:main
+          fi
+
       - name: Build zip
         run: |
           mkdir -p RollFor-WotLK
@@ -34,8 +53,6 @@ jobs:
 
       - name: Update Latest Tag
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -f latest
           git push origin latest --force
 
