@@ -10,18 +10,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Update version in .toc file
-        run: |
-          TAG_VERSION=${GITHUB_REF#refs/tags/}
-          sed -i 's/^Version: .*/Version: $TAG_VERSION/' path/to/your/file.toc
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: actions/checkout@v3
         with:
-          tag: ${{ github.ref }}
-          files: |
-            path/to/your/package.zip
+          fetch-depth: 0
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Update version in RollFor-WotLK.toc
+        run: |
+          sed -i 's/## Version: @project-version@/## Version: ${{ env.VERSION }}/' RollFor-WotLK.toc
+          echo "Updated .toc file:"
+          grep "## Version:" RollFor-WotLK.toc
+
+      - name: Commit and push version update
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add RollFor-WotLK.toc
+          git commit -m "chore: Update version to ${{ env.VERSION }}" || echo "No changes to commit"
+          git push
+
+      - name: Package and Release
+        uses: BigWigsMods/packager@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
