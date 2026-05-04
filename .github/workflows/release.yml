@@ -25,9 +25,26 @@ jobs:
             --exclude='RollFor-WotLK' . RollFor-WotLK/
           zip -r RollFor-WotLK.zip RollFor-WotLK/
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+      - name: Create Versioned GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
           files: RollFor-WotLK.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Latest Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -f latest
+          git push origin latest --force
+
+      - name: Update Latest GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: RollFor-WotLK.zip
+          tag_name: latest
+          name: Latest Release
+          body: "This release always contains the most recent version (${{ github.ref_name }})."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
