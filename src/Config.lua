@@ -83,9 +83,14 @@ function M.new( db, event_bus )
       db.award_filter = {
         item_quality = { Uncommon = 1, Rare = 1, Epic = 1, Legendary = 1 },
         winning_roll = {},
-        roll_type = { MainSpec = 1, OffSpec = 1, Transmog = 1, SoftRes = 1, RR = 1 }
+        roll_type = { MainSpec = 1, OffSpec = 1, Transmog = 1, SoftRes = 1, RR = 1, NA = 1 }
       }
     end
+	-- Data Migration for existing users who already had an old profile saved
+    if db.award_filter and db.award_filter.roll_type and db.award_filter.roll_type.NA == nil then
+      db.award_filter.roll_type.NA = 1
+    end
+
     m.classic = db.classic_look
   end
 

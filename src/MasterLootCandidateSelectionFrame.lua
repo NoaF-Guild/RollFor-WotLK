@@ -16,7 +16,9 @@ local vertical_padding = 5
 local mod, getn = m.mod, m.getn
 
 local function highlight( frame )
-  frame:SetBackdropColor( frame.color.r, frame.color.g, frame.color.b, 0.3 )
+  -- Use the player's class color, or fallback to white if color is nil
+  local color = frame.color or { r = 1, g = 1, b = 1 }
+  frame:SetBackdropColor( color.r, color.g, color.b, 0.3 )
 end
 
 local function dim( frame )
@@ -24,7 +26,9 @@ local function dim( frame )
 end
 
 local function press( frame )
-  frame:SetBackdropColor( frame.color.r, frame.color.g, frame.color.b, 0.7 )
+  -- Use the player's class color, or fallback to white if color is nil
+  local color = frame.color or { r = 1, g = 1, b = 1 }
+  frame:SetBackdropColor( color.r, color.g, color.b, 0.7 )
 end
 
 ---@param frame_builder FrameBuilderFactory
