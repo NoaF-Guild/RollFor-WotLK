@@ -63,9 +63,24 @@ end
   end
 
   local function is_leader()
-    -- UnitIsGroupLeader was added in Cataclysm. In WotLK 3.3.5a use UnitIsPartyLeader.
-    local fn = api.UnitIsGroupLeader or api.UnitIsPartyLeader
-    return fn and fn( "player" ) or false
+    -- UnitIsGroupLeader was added in Cataclysm. In WotLK 3.3.5a, UnitIsPartyLeader
+    -- only works in party context. For raids, check raid roster rank.
+    if api.UnitIsGroupLeader then
+      return api.UnitIsGroupLeader( "player" )
+    end
+
+    if api.IsInRaid() then
+      local my_name = get_name()
+      for i = 1, 40 do
+        local name, rank = api.GetRaidRosterInfo( i )
+        if name and name == my_name then
+          return rank == 2
+        end
+      end
+      return false
+    end
+
+    return api.UnitIsPartyLeader and api.UnitIsPartyLeader( "player" ) or false
   end
 
   local function is_assistant()
